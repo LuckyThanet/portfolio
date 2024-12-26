@@ -14,7 +14,7 @@ const timelineData: TimelineItem[] = [
         description: ['Designing and developing the website for the eLearning Forum Asia 2025 conference, focusing on creating a user-friendly interface and smooth navigation for participants.',
             "Contributed to both frontend and backend development, utilizing React for the frontend and focusing on backend scalability and performance."
         ],
-        status: 'in progress'
+        status: 'In progress'
     },
     {
         date: 'September 2024 - Present',
@@ -22,7 +22,7 @@ const timelineData: TimelineItem[] = [
         description: ['Developing a system for managing activities in the 2B-KMUTT camp, such as attendance tracking and assignment submissions, using Next.js and SQL for database management.',
             "Currently working on optimizing the system’s performance and improving data handling efficiency."
         ],
-        status: 'in progress'
+        status: 'In progress'
     },
     {
         date: 'July 2024 - August 2024',

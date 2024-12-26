@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
                     animate={{ opacity: 1 }}           // เมื่อ Modal แสดงจะโปร่งใสเต็มที่
                     exit={{ opacity: 0 }}              // เมื่อ Modal ปิดจะโปร่งใส
                     transition={{ duration: 0.3 }}     // ระยะเวลาการเปลี่ยนแปลง
-                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 sm:px-0"
+                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1100] px-4 sm:px-0"
                 >
                     <motion.div
                         initial={{ scale: 0.9 }}          // เริ่มต้นที่ขนาดเล็ก
