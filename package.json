@@ -1,5 +1,6 @@
 {
-  "name": "elfasia-frontend",
+  "homepage": "https://LuckyThanet.github.io/portfolio",
+  "name": "portfolio-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
+  
   },
   "dependencies": {
     "antd": "^5.22.2",
