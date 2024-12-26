@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.safari-nav {
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.animate-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  

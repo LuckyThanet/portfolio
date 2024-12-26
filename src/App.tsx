@@ -18,7 +18,7 @@ const App: React.FC = () => {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/portfolio" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />        
         </Routes>
       </Layout>

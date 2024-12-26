@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
     return (
         <div className="sticky top-0 left-0 w-full z-[1000]">
-            <div className="bg-white/10 backdrop-blur-lg shadow-2xl border border-white/20">
+            <div className="bg-white/10 backdrop-blur-lg shadow-lg border border-white/20 safari-nav">
                 <div className="flex justify-between items-center px-6 py-4 mx-auto max-w-screen-xl">
 
                     {/* Hamburger Icon for small screens */}
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
                     </div>
 
                     {/* Navbar Items - visible only on large screens */}
-                    <div className="hidden sm:flex justify-center gap-12 flex-1">
+                    <div className="hidden sm:flex justify-center lg:gap-12 flex-1">
                         <NavItem icon={<HomeOutlined className="text-xl" />} label="Home" />
                         <NavItem icon={<UserOutlined className="text-xl" />} label="Profile" />
                         <NavItem icon={<LaptopOutlined className="text-xl" />} label="Experiences" />
