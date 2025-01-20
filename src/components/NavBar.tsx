@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
                     <div className="sm:hidden flex items-center justify-between w-full" onClick={toggleMenu}>
                         <div className="flex items-center ml-2">
                             <a href="https://github.com/LuckyThanet" className="block border-b-2 border-black ">
-                                <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=000000&width=435&height=30&lines=My+Portfolio;+I+want+to+be+Web+development" alt="Typing SVG" />
+                                <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=000000&width=435&height=30&lines=My+Portfolio;+I+want+to+be+Web+developer" alt="Typing SVG" />
                             </a>
                         </div>
                         <MenuOutlined className="text-xl text-black hover:cursor-pointer ml-4" />
