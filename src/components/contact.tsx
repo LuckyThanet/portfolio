@@ -9,35 +9,34 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <>
-            <FloatButton.Group
-                open={open}
-                trigger="click"
-                style={{ insetInlineEnd: 24 }}
-                icon={<ContactsFilled />}
-                onClick={toggleOpen}
-            >
+        <FloatButton.Group
+            open={open}
+            trigger="click"
+            style={{ insetInlineEnd: 24 }}
+            icon={<ContactsFilled />}
+            onClick={toggleOpen}
+        >
+            <a href="https://www.facebook.com/thnes.cxm.phul" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FloatButton
                     icon={<FacebookFilled />}
-                    href="https://www.facebook.com/thnes.cxm.phul"
-                    style={{ backgroundColor: "#D1D5DB" }} // สีเทาอ่อน
-
+                    style={{ backgroundColor: "#D1D5DB" }}
                 />
+            </a>
+
+            <a href="https://www.instagram.com/etantj._" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FloatButton
                     icon={<InstagramFilled />}
-                    href="https://www.instagram.com/etantj._"
-                    target="blank"
-                    style={{ backgroundColor: "#D1D5DB" }} // สีเทาอ่อน
-
+                    style={{ backgroundColor: "#D1D5DB" }}
                 />
+            </a>
+
+            <a href="https://github.com/LuckyThanet" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <FloatButton
                     icon={<GithubFilled />}
-                    href="https://github.com/LuckyThanet"
-                    target="blank"
-                    style={{ backgroundColor: "#D1D5DB" }} // สีเทาอ่อน
+                    style={{ backgroundColor: "#D1D5DB" }}
                 />
-            </FloatButton.Group>
-        </>
+            </a>
+        </FloatButton.Group>
     );
 };
 

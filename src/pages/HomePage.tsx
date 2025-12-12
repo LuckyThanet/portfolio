@@ -36,7 +36,7 @@ const HomePage: React.FC = () => {
                 >
                     <motion.img
                         src={imgthanet}
-                        alt="Your Profile"
+                        alt="Your Profile" 
                         className="w-32 h-32 sm:w-64 sm:h-64 rounded-full mb-5 border-4 border-gray-800"
                         initial={{ scale: 0.9 }}
                         animate={{ scale: 1 }}

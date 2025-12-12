@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage, NotFoundPage } from './pages';
-import Navbar from './components/navbar';
+import Navbar from './components/NavBar';
 
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div>
       <Navbar />
@@ -14,6 +14,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 const App: React.FC = () => {
+
   return (
     <Router>
       <Layout>

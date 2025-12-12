@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, } from 'react';
 import Modal from './modal';
 import { InfoProject } from '../interface/global.types'
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
+import useMeasure from 'react-use-measure';
 
 const ProjectCard: React.FC<InfoProject> = ({
     title,
@@ -15,6 +16,25 @@ const ProjectCard: React.FC<InfoProject> = ({
     imageUrl,
 }) => {
     const [isModalOpen, setModalOpen] = useState(false);
+
+    const [ref, { width }] = useMeasure();
+    const xTranslation = useMotionValue(0);
+
+    useEffect(() => {
+        if (width <= 0) return;
+        const finalPosition = -width / 2 - 8;
+        const controls = animate(xTranslation, [0, finalPosition], {
+            ease: "linear",
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "loop",
+            repeatDelay: 0,
+        });
+
+        return () => controls.stop();
+
+
+    }, [width, xTranslation]);
 
     return (
         <>
@@ -45,16 +65,9 @@ const ProjectCard: React.FC<InfoProject> = ({
                 {imageUrl && imageUrl.length > 0 && (
                     <div className="overflow-hidden w-full">
                         <motion.div
-                            className="flex gap-4"
-                            animate={{
-                                x: ["0%", "-100%"],  // เลื่อนไปซ้ายจาก 0% ไป -100%
-                            }}
-                            transition={{
-                                ease: "linear",
-                                duration: 20,  // ระยะเวลาในการเลื่อน
-                                repeat: Infinity,  // ทำให้เลื่อนไปเรื่อยๆ
-                                repeatType: "loop",  // วนลูปภาพ
-                            }}
+                            ref={ref}
+                            className="flex w-max gap-4"
+                            style={{ x: xTranslation }}
                         >
                             {/* ใช้ concat เพื่อเพิ่มภาพซ้ำ */}
                             {imageUrl.concat(imageUrl).map((url, index) => (
