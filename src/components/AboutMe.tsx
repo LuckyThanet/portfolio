@@ -85,7 +85,7 @@ export default function AboutMe() {
                             <div>
                                 <p className="font-semibold text-gray-700 mb-1">Other Tools</p>
                                 <div className="flex flex-wrap gap-2">
-                                    {['Power Apps', 'Figma', 'Canva', 'Linux', 'Git', 'GitHub', 'MongoDB'].map((s) => (
+                                    {['Power Apps', 'Figma', 'Canva', 'Linux', 'Git', 'GitHub', 'MongoDB' , 'Docker'].map((s) => (
                                         <span key={s} className="px-2 py-0.5 bg-gray-100 border border-gray-200 text-gray-700 text-sm rounded">{s}</span>
                                     ))}
                                 </div>
