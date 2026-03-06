@@ -1,8 +1,6 @@
 import React from 'react';
 import imgthanet from '../assets/thanet.jpg';
-// import Contact from '../components/contact';
-// import ProjectCard from '../components/projectCard';
-// import Timeline from '../components/timeline';
+
 const Contact = React.lazy(() => import('../components/contact'));
 const ProjectCard = React.lazy(() => import('../components/projectCard'));
 const Timeline = React.lazy(() => import('../components/timeline'));
@@ -10,7 +8,7 @@ const Timeline = React.lazy(() => import('../components/timeline'));
 import { motion } from 'framer-motion';
 import { project, InfoProject } from '../interface/global.types';
 import { MailOutlined } from '@ant-design/icons';
-
+import AboutMe from '../components/AboutMe';
 const Skeleton = () => (
     <div className="space-y-4">
         <div className="w-full h-6 bg-gray-200 rounded animate-pulse"></div>
@@ -20,7 +18,7 @@ const Skeleton = () => (
 );
 
 
-const HomePage: React.FC = () => {
+const  HomePage: React.FC = () => {
 
     return (
         <div className="bg-white text-black">
@@ -49,44 +47,7 @@ const HomePage: React.FC = () => {
                 </motion.section>
 
                 {/* About Section */}
-                <motion.section
-                    id="profile"
-                    className="py-20 px-5 bg-gray-100"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="max-w-5xl mx-auto text-center text-black">
-                        <h2 className="text-4xl font-extrabold mb-8">About Me</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
-                            <div className="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Objective</h3>
-                                <p className="text-base text-gray-600">
-                                    To enhance knowledge in web design and development in depth, including utilizing various tools and frameworks such as React, Node.js, and working with databases to build functional and efficient websites.
-                                </p>
-                            </div>
-                            <div className="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Education</h3>
-                                <p className="text-base text-gray-600">Currently pursuing a Bachelor's degree in Computer Engineering at King Mongkut's University of Technology Thonburi | KMUTT.</p>
-                            </div>
-                            <div className="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Skills</h3>
-                                <ul className="list-disc list-inside text-base text-gray-600">
-                                    <div><strong>Programming Languages</strong> <br />TypeScript, JavaScript, C, SQL, NoSQL</div>
-                                    <div><strong>Frameworks and Libraries</strong> <br />React, Next.js, Express.js, Tailwind CSS, Node.js</div>
-                                    <div><strong>Other Tools</strong> <br />Power Apps, Figma, Canva, Linux, Git, GitHub, MongoDB</div>
-                                </ul>
-                            </div>
-                            <div className="bg-white border border-gray-300 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Interest</h3>
-                                <p className="text-base text-gray-600">
-                                    I am passionate about web development and constantly exploring new programming languages and frameworks to enhance my skills. I enjoy tackling complex problems and finding efficient solutions through technology.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </motion.section>
+                <AboutMe />
 
                 <motion.section
                     id="experiences"
@@ -99,7 +60,39 @@ const HomePage: React.FC = () => {
                     <div className="max-w-5xl mx-auto text-center">
                         <h2 className="text-3xl font-semibold text-gray-900 mb-4">Experiences</h2>
                         <div className="flex justify-center">
-                            <Timeline />
+                            <Timeline type="experience" />
+                        </div>
+                    </div>
+                </motion.section>
+
+                <motion.section
+                    id="achievements"
+                    className="py-20 px-5 bg-gray-100"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="max-w-5xl mx-auto text-center">
+                        <h2 className="text-3xl font-semibold text-gray-900 mb-4">Achievements & Competitions</h2>
+                        <div className="flex justify-center">
+                            <Timeline type="hackathon" />
+                        </div>
+                    </div>
+                </motion.section>
+
+                <motion.section
+                    id="activities"
+                    className="py-20 px-5"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.75 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="max-w-5xl mx-auto text-center">
+                        <h2 className="text-3xl font-semibold text-gray-900 mb-4">Activities</h2>
+                        <div className="flex justify-center">
+                            <Timeline type="activity" />
                         </div>
                     </div>
                 </motion.section>

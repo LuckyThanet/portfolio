@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage, NotFoundPage } from './pages';
 import Navbar from './components/NavBar';
 
@@ -19,7 +19,7 @@ const App: React.FC = () => {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/portfolio" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />        
         </Routes>
       </Layout>

@@ -1,51 +1,127 @@
 import React from 'react';
 
+type TimelineType = 'experience' | 'hackathon' | 'activity';
+
 interface TimelineItem {
     date: string;
     title: string;
     description: string[];
     status?: string;
+    type: TimelineType;
 }
 
 const timelineData: TimelineItem[] = [
     {
-        date: 'November 2024 - Present',
-        title: 'Full Stack Developer for Learning Institute',
-        description: ['Designing and developing the website for the eLearning Forum Asia 2025 conference, focusing on creating a user-friendly interface and smooth navigation for participants.',
-            "Contributed to both frontend and backend development, utilizing React for the frontend and focusing on backend scalability and performance."
+        date: 'August 2025 - March 2026',
+        title: 'Full Stack Developer | Learning Institute (KMUTT PSF)',
+        description: [
+            'Designing and developing the website for the KMUTT PSF.',
+            'Collaborating with stakeholders to gather requirements and implementing responsive UI components using React and Tailwind CSS to ensure a seamless user experience.',
         ],
-        status: 'In progress'
+        status: 'Completed',
+        type: 'experience'
     },
     {
-        date: 'September 2024 - Present',
-        title: 'Full Stack Developer for Admission and Recruitment Office',
-        description: ['Developing a system for managing activities in the 2B-KMUTT camp, such as attendance tracking and assignment submissions, using Next.js and SQL for database management.',
-            "Currently working on optimizing the system’s performance and improving data handling efficiency."
+        date: 'June 2025 - August 2025',
+        title: 'Software Developer Intern | House of Dev Technology',
+        description: [
+            'Developed and maintained web applications using modern frameworks, ensuring high performance and code quality through rigorous testing.',
+            'Refactored RESTful APIs to optimize backend performance, improving data retrieval speed and enhancing overall system maintainability.',
         ],
-        status: 'In progress'
+        status: 'Completed',
+        type: 'experience'
+    },
+    {
+        date: 'November 2024 - August 2025',
+        title: 'Full Stack Developer | Learning Institute (eLearning Forum Asia 2025)',
+        description: [
+            'Designed and developed the website for the eLearning Forum Asia 2025 conference, focusing on creating a user-friendly interface and smooth navigation for participants.',
+            'Contributed to both frontend and backend development, utilizing React for the frontend and focusing on backend scalability and performance.',
+        ],
+        status: 'Completed',
+        type: 'experience'
+    },
+    {
+        date: 'September 2024 - April 2025',
+        title: 'Full Stack Developer | Admission and Recruitment Office',
+        description: [
+            'Developed a system for managing activities in the 2B-KMUTT camp, such as attendance tracking and assignment submissions, using Next.js and SQL for database management.',
+            "Optimized the system's performance and improved data handling efficiency.",
+        ],
+        status: 'Completed',
+        type: 'experience'
     },
     {
         date: 'July 2024 - August 2024',
-        title: 'Full Stack Developer for Department of Mathematics',
-        description: ['Designed a classroom booking application using Power Apps, including UI development and implementing functionality with Power Fx.',
-            "Utilized Excel as the database for managing bookings and data storage, ensuring efficient and scalable system operation."
+        title: 'Full Stack Developer | Department of Mathematics',
+        description: [
+            'Designed a classroom booking application using Power Apps, including UI development and implementing functionality with Power Fx.',
+            'Utilized Excel as the database for managing bookings and data storage, ensuring efficient and scalable system operation.',
         ],
-        status: 'Completed'
+        status: 'Completed',
+        type: 'experience'
+    },
+    {
+        date: 'June 2025 - July 2025',
+        title: 'Semi-Finalist | Cyber Warrior Hackathon 2025',
+        description: [
+            'Developed "InfoScope", an OSINT-based intelligence platform for social media account discovery and analysis using automated data collection techniques.',
+            'Implemented data correlation algorithms to link digital footprints across multiple platforms, presenting findings through an intuitive dashboard for security researchers.',
+        ],
+        status: 'Completed',
+        type: 'hackathon'
     },
     {
         date: 'April 2024',
-        title: 'Semi-Finalist | MED X Engineering Hackathon: Together Toward the Future ',
-        description: ['Developed "Start-to-Finish", an innovative medical screening and emergency response system to improve healthcare accessibility in underserved communities.',
-            'Designed a mobile app integrating hospital selection, real-time bed availability tracking, and emergency triage systems based on severity.'
+        title: 'Semi-Finalist | MED X Engineering Hackathon: Together Toward the Future',
+        description: [
+            'Developed "Start-to-Finish", an innovative medical screening and emergency response system to improve healthcare accessibility in underserved communities.',
+            'Designed a mobile app integrating hospital selection, real-time bed availability tracking, and emergency triage systems based on severity.',
         ],
-        status: 'Completed'
-    }
+        status: 'Completed',
+        type: 'hackathon'
+    },
+    {
+        date: 'August 2024 - December 2024',
+        title: 'Vice President of Workshop Dept. | CPE Openhouse 2024',
+        description: [
+            'Served as Vice President of the Workshop Department, overseeing strategic planning, team coordination, and the overall execution of technical sessions.',
+            'Managed end-to-end workshop operations, including curriculum development, resource procurement, and mentor training to ensure high-quality learning experiences.',
+        ],
+        status: 'Completed',
+        type: 'activity'
+    },
+    {
+        date: 'June 2023 - July 2023',
+        title: 'Mentor | Modcom',
+        description: [
+            'Provided academic guidance and technical support to participants while facilitating group activities to enhance collaborative problem-solving skills.',
+            'Coordinated with team members to organize engaging sessions and maintained a productive learning environment throughout the duration of the camp.',
+        ],
+        status: 'Completed',
+        type: 'activity'
+    },
+    {
+        date: 'January 2023 - April 2023',
+        title: 'Teaching Assistant | Comcamp 34',
+        description: [
+            'Guided high school students through foundational computer science projects and provided insights into engineering career paths and higher education.',
+            'Managed group dynamics and addressed real-time challenges during activities to ensure all participants successfully met their learning objectives.',
+        ],
+        status: 'Completed',
+        type: 'activity'
+    },
 ];
 
-const Timeline: React.FC = () => {
+interface TimelineProps {
+    type: TimelineType;
+}
+
+const Timeline: React.FC<TimelineProps> = ({ type }) => {
+    const filtered = timelineData.filter(item => item.type === type);
     return (
         <ol className="relative border-s border-gray-200 dark:border-gray-700">
-            {timelineData.map((item, index) => (
+            {filtered.map((item, index) => (
                 <li key={index} className="mb-10 ms-4 text-left">
                     <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                     <time className="mb-1 text-sm font-normal leading-none text-gray-800 dark:text-gray-500">
@@ -65,10 +141,8 @@ const Timeline: React.FC = () => {
                         </h3>
                     </div>
                     <ul className="list-disc list-inside text-gray-800">
-                        {item.description.map((desc: string, index) => (
-                            <li key={index}>
-                                {desc}
-                            </li>
+                        {item.description.map((desc: string, i) => (
+                            <li key={i}>{desc}</li>
                         ))}
                     </ul>
                 </li>
