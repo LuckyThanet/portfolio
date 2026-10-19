@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Inter has no Thai glyphs, so Thai text falls through to Noto Sans Thai */
+  --font-sans: "Inter", "Noto Sans Thai", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-thai: "Noto Sans Thai", "Inter", system-ui, sans-serif;
+
+  --color-brand-accent: #b45309;
+  --color-brand-accent-hover: #92400e;
+  --color-brand-accent-soft: #fef3c7;
+  --color-brand-ink: #111827;
+  --color-brand-muted: #4b5563;
+  --color-brand-subtle: #6b7280;
+  --color-brand-border: #e5e7eb;
+  --color-brand-surface: #ffffff;
+  --color-brand-surface-subtle: #f9fafb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:lang(th) {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+::selection {
+  background-color: var(--color-brand-accent-soft);
+  color: var(--color-brand-accent-hover);
+}
+
+/* Material Symbols vertical alignment */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined Variable";
+  font-weight: normal;
+  font-style: normal;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-block;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+
+/* Status breathing pulse */
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+}
+
+.status-pulse-dot {
+  animation: status-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Endless image strip: the track holds two identical sets, so moving it by
+   -50% lands exactly where it started. Percentages follow the live width,
+   so image loading or the modal's zoom-in never restarts the loop. */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+/* No auto-motion for people who ask for less: swipe through one set instead */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee-set[aria-hidden="true"] {
+    display: none;
+  }
+}
